@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WebAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[WebAuthController::class,'login']);
+Route::post('login',[WebAuthController::class,'Authlogin']);
+Route::get('logout',[WebAuthController::class,'logout']);
+
+
+Route::get('/admin/dashboard', function () {
+    return view('Admin.admindash');
+});
+
+Route::get('/admin/admin/list', function () {
+    return view('Admin.admin.list');
 });
