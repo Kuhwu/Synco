@@ -26,3 +26,22 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/admin/list', function () {
     return view('Admin.admin.list');
 });
+
+
+Route::group(['middleware' => 'admin'],function(){
+    Route::get('/admin/dashboard', function () {
+        return view('Admin.admindash');
+    });
+});
+
+Route::group(['middleware' => 'teacher'],function(){
+    Route::get('/teacher/dashboard', function () {
+        return view('Admin.admindash');
+    });
+});
+
+Route::group(['middleware' => 'student'],function(){
+    Route::get('/student/dashboard', function () {
+        return view('Admin.admindash');
+    }); 
+});
