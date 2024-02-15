@@ -8,6 +8,11 @@
           <div class="col-sm-6">
             <h1>Admin List</h1>
           </div>
+
+          <div class="col-sm-6" style="text-align: right;">
+          <a href="{{url('manager/manager/add')}}" class="btn btn-primary"> Add New Admin</a>
+          </div>
+
         </div>
       </div><!-- /.container-fluid -->
     </section>

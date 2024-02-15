@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\SyncoMW\AdminMiddleware::class,
         'teacher' => \App\Http\Middleware\SyncoMW\TeacherMiddleware::class,
         'student' => \App\Http\Middleware\SyncoMW\StudentMiddleware::class,
+        'manager' => \App\Http\Middleware\SyncoMW\ManagerMiddleware::class,
 
     ];
 }

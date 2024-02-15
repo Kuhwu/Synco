@@ -18,5 +18,8 @@ class DashboardController extends Controller
         elseif(Auth::user()->user_type == 3){
             return view('Student.studentdash', $data);
         }
+        elseif(Auth::user()->user_type == 4){
+            return view('Manager.managerdash', $data);
+        }
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\WebAuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +36,13 @@ Route::group(['middleware' => 'admin'],function(){
 
     Route::get('/admin/dashboard',[DashboardController::class,'dashboard']);
     Route::get('/admin/admin/list',[AdminController::class,'list']);
-    Route::get('/admin/admin/add',[AdminController::class,'add']);
-    Route::post('/admin/admin/add',[AdminController::class,'insert'])->name('insert');    
+});
+
+Route::group(['middleware' => 'manager'],function(){
+    Route::post('/manager/manager/add',[ManagerController::class,'insert'])->name('insert');    
+    Route::get('/manager/manager/add',[ManagerController::class,'add']);
+    Route::get('/manager/manager/list',[ManagerController::class,'managerlist']);
+    Route::get('/manager/dashboard',[DashboardController::class,'dashboard']);
 });
 
 Route::group(['middleware' => 'teacher'],function(){
@@ -48,3 +54,4 @@ Route::group(['middleware' => 'student'],function(){
 
     Route::get('/student/dashboard',[DashboardController::class,'dashboard']);
 });
+

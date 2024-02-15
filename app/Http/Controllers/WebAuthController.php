@@ -28,6 +28,9 @@ class WebAuthController extends Controller
             elseif(Auth::user()->user_type == 3){
                 return redirect('student/dashboard');
             }
+            elseif(Auth::user()->user_type == 4){
+                return redirect('manager/dashboard');
+            }
         }
 
         return view('Auth.login');
@@ -49,6 +52,9 @@ class WebAuthController extends Controller
             }
             elseif(Auth::user()->user_type == 3){
                 return redirect('student/dashboard');
+            }
+            elseif(Auth::user()->user_type == 4){
+                return redirect('manager/dashboard');
             }
         } 
         else {
