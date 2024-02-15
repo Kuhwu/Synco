@@ -46,6 +46,10 @@
                         <td>{{$value->name}}</td>
                         <td>{{$value->email}}</td>
                         <td>{{$value->created_at}}</td>
+                        <td>
+                          <a href="{{url('manager/manager/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                          <a href="{{url('manager/manager/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>

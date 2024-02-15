@@ -39,10 +39,15 @@ Route::group(['middleware' => 'admin'],function(){
 });
 
 Route::group(['middleware' => 'manager'],function(){
-    Route::post('/manager/manager/add',[ManagerController::class,'insert'])->name('insert');    
+
     Route::get('/manager/manager/add',[ManagerController::class,'add']);
     Route::get('/manager/manager/list',[ManagerController::class,'managerlist']);
     Route::get('/manager/dashboard',[DashboardController::class,'dashboard']);
+    Route::get('/manager/manager/edit/{id}',[ManagerController::class,'edit']);   
+    Route::get('/manager/manager/delete/{id}',[ManagerController::class,'delete']);     
+
+    Route::post('/manager/manager/edit/{id}',[ManagerController::class,'update']);    
+    Route::post('/manager/manager/add',[ManagerController::class,'insert'])->name('insert');
 });
 
 Route::group(['middleware' => 'teacher'],function(){
