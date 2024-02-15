@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\WebAuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,33 +17,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[WebAuthController::class,'login']);
-Route::post('login',[WebAuthController::class,'Authlogin']);
 Route::get('logout',[WebAuthController::class,'logout']);
+Route::get('forgot-password',[WebAuthController::class,'forgotpassword']);
+Route::get('reset/{token}',[WebAuthController::class,'reset']);
+
+Route::post('login',[WebAuthController::class,'Authlogin'])->name('login');
+Route::post('forgot-password',[WebAuthController::class,'PostForgotPassword']);
+Route::post('reset/{token}',[WebAuthController::class,'PostReset']);
 
 
 Route::get('/admin/dashboard', function () {
     return view('Admin.admindash');
 });
 
-Route::get('/admin/admin/list', function () {
-    return view('Admin.admin.list');
-});
-
 
 Route::group(['middleware' => 'admin'],function(){
-    Route::get('/admin/dashboard', function () {
-        return view('Admin.admindash');
-    });
+
+    Route::get('/admin/dashboard',[DashboardController::class,'dashboard']);
+    Route::get('/admin/admin/list',[AdminController::class,'list']);
+    Route::get('/admin/admin/add',[AdminController::class,'add']);
+    Route::post('/admin/admin/add',[AdminController::class,'insert'])->name('insert');    
 });
 
 Route::group(['middleware' => 'teacher'],function(){
-    Route::get('/teacher/dashboard', function () {
-        return view('Admin.admindash');
-    });
+
+    Route::get('/teacher/dashboard',[DashboardController::class,'dashboard']);
 });
 
 Route::group(['middleware' => 'student'],function(){
-    Route::get('/student/dashboard', function () {
-        return view('Admin.admindash');
-    }); 
+
+    Route::get('/student/dashboard',[DashboardController::class,'dashboard']);
 });
