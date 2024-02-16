@@ -25,13 +25,14 @@
                 <div class="card-body">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="name" value="{{$getRecord->name}}" placeholder="Name">
+                    <input type="text" class="form-control" name="name" value="{{ old('email',$getRecord->name)}}" placeholder="Name">
                     <p>Update Name?</p>
                   </div>
                   <div class="form-group">
                     <label>Email address</label>
-                    <input type="email" class="form-control" name="email" value="{{$getRecord->email}}" placeholder="Email">
+                    <input type="email" class="form-control" name="email" value="{{ old('email',$getRecord->email)}}" placeholder="Email">
                     <p>Update Email?</p>
+                    <div style="color:red">{{$errors->first('email')}}</div>
                   </div>
                   <div class="form-group">
                     <label>Password</label>
