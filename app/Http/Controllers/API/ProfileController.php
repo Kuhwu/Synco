@@ -78,7 +78,7 @@ class ProfileController extends Controller
         }
 
         $user->update([
-            'name'=>$request->name ?? $user->name,
+            'username'=>$request->username ?? $user->username,
             'profession'=>$request->profession ?? $user->profession,
             'gender' => $request->gender ?? $user->gender,
             'location'=> $request->location ?? $user->location,
