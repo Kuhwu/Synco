@@ -36,6 +36,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/admins',[ManagerApiContoller::class,'add']);
     Route::get('/admins/{id}',[ManagerApiContoller::class,'edit']);
     Route::post('/admins/{id}',[ManagerApiContoller::class,'update']);
+    Route::delete('/admins/{id}',[ManagerApiContoller::class, 'delete']);
 });
 
 

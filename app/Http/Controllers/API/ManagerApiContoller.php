@@ -50,24 +50,45 @@ class ManagerApiContoller extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'sometimes|required|string|min:6',
+            'email' => 'sometimes|email|unique:users,email,' . $id,
+            'password' => 'sometimes|string|min:6',
         ]);
-
+    
         $user = User::find($id);
         if (!$user || $user->user_type !== 1 || $user->is_delete) {
             return response()->json(['error' => 'Admin not found'], 404);
         }
-
-        $user->name = trim($request->name);
-        $user->email = trim($request->email);
+    
+        if ($request->has('name')) {
+            $user->name = trim($request->name);
+        }
+    
+        if ($request->has('email')) {
+            $user->email = trim($request->email);
+        }
+    
         if ($request->has('password')) {
             $user->password = Hash::make($request->password);
         }
+    
         $user->save();
-
+    
         return response()->json(['message' => 'Admin successfully updated'], 200);
     }
+    
+    public function delete($id){
 
+
+        $user = User::find($id);
+
+        if(!$user || $user->user_type !==1 || $user->is_delete){
+            return response()->json(['error' => 'Admin not found'],404);
+        }
+
+        $user->is_delete = 1;
+        $user->save();
+
+
+        return response()->json(['message' => 'Admin successfully deleted'], 200);
+    }
 }
