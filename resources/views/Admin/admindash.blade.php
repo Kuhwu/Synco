@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Dashboards</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -26,7 +26,7 @@
               <div class="inner">
                 <h3>150</h3>
 
-                <p>New Orders</p>
+                <p>Teacher</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -160,7 +160,7 @@
                   <!-- Message to the right -->
                   <div class="direct-chat-msg right">
                     <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-name float-right">Sarah Bulloc</span>
                       <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->

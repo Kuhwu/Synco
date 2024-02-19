@@ -32,16 +32,17 @@
                   <div class="row">
                 <div class="form-group col-md-4">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="name" value = "{{old('name')}}" placeholder="Name" required>
+                    <input type="text" class="form-control" name="name" value = "{{old('name')}}" placeholder="Name" >
                   </div>
                   <div class="form-group col-md-4">
                     <label>Email address</label>
-                    <input type="email" class="form-control" name="email" value = "{{old('email')}}"  placeholder="Email" required>
+                    <input type="text" class="form-control" name="email" value = "{{old('email')}}"  placeholder="Email" >
                     <div style="color:red">{{$errors->first('email')}}</div>
                   </div>
 
                   <div class="form-group col-md-3">
-                    <button class="btn btn-primary" type="submit" > Search</button>
+                    <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Search</button>
+                    <a href="{{url('manager/manager/list')}}" class="btn btn-success" style="margin-top: 30px;" > Reset</a>
                   </div>
                   </div>
                 </div>

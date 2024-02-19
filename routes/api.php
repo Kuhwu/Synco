@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\TeacherApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProfileController;
@@ -38,5 +39,13 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/admins/{id}',[ManagerApiContoller::class,'update']);
     Route::delete('/admins/{id}',[ManagerApiContoller::class, 'delete']);
 });
+
+
+
+
+
+
+
+
 
 
