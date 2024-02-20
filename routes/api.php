@@ -32,6 +32,8 @@ Route::get('/auth/user',[UserController::class,'user'])->middleware('auth:sanctu
 Route::get('/auth/logout',[UserController::class,'logout'])->middleware('auth:sanctum');
 
 
+
+
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/admins',[ManagerApiContoller::class,'managerlist']);
     Route::post('/admins',[ManagerApiContoller::class,'add']);
