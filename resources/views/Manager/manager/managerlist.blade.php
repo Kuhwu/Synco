@@ -14,10 +14,9 @@
           </div>
 
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
-    <!-- Main content -->
     <section class="content">
       <div class="row">
           <div class="col-md-12">
@@ -25,7 +24,6 @@
               <div class="card-header">
                 <h3 class="card-title">Search </h3>
               </div>
-              <!-- form start -->
               <form action="" method="GET">
               {{csrf_field()}}
                 <div class="card-body">
@@ -46,23 +44,19 @@
                   </div>
                   </div>
                 </div>
-                <!-- /.card-body -->
               </form>
             </div>
           </div>
         </div>
       <div class="container-fluid">
         <div class="row">
-        <!-- adjust Table -->
           <div class="col-md-12"> 
 
           @include ('message')
-            <!-- /.card -->
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Admin List</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body p-0">
                 <table class="table table-striped">
                   <thead>
@@ -90,12 +84,8 @@
                   {!! $getRecord->appends(request()->except('page'))->links() !!}
                 </div>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
       </div>
   @endsection

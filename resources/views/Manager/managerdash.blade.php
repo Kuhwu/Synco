@@ -222,10 +222,8 @@
                           </span>
                           <span class="contacts-list-msg">How have you been? I was...</span>
                         </div>
-                        <!-- /.contacts-list-info -->
                       </a>
                     </li>
-                    <!-- End Contact Item -->
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{url('assets/adminassets/dist/img/user7-128x128.jpg')}}" alt="User Avatar">
@@ -237,10 +235,8 @@
                           </span>
                           <span class="contacts-list-msg">I will be waiting for...</span>
                         </div>
-                        <!-- /.contacts-list-info -->
                       </a>
                     </li>
-                    <!-- End Contact Item -->
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{url('assets/adminassets/dist/img/user3-128x128.jpg')}}" alt="User Avatar">
@@ -252,10 +248,8 @@
                           </span>
                           <span class="contacts-list-msg">I'll call you back at...</span>
                         </div>
-                        <!-- /.contacts-list-info -->
                       </a>
                     </li>
-                    <!-- End Contact Item -->
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{url('assets/adminassets/dist/img/user5-128x128.jpg')}}" alt="User Avatar">
@@ -267,10 +261,8 @@
                           </span>
                           <span class="contacts-list-msg">Where is your new...</span>
                         </div>
-                        <!-- /.contacts-list-info -->
                       </a>
                     </li>
-                    <!-- End Contact Item -->
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{url('assets/adminassets/dist/img/user6-128x128.jpg')}}" alt="User Avatar">
@@ -282,10 +274,8 @@
                           </span>
                           <span class="contacts-list-msg">Can I take a look at...</span>
                         </div>
-                        <!-- /.contacts-list-info -->
                       </a>
                     </li>
-                    <!-- End Contact Item -->
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{url('assets/adminassets/dist/img/user8-128x128.jpg')}}" alt="User Avatar">
@@ -297,16 +287,11 @@
                           </span>
                           <span class="contacts-list-msg">Never mind I found...</span>
                         </div>
-                        <!-- /.contacts-list-info -->
                       </a>
                     </li>
-                    <!-- End Contact Item -->
                   </ul>
-                  <!-- /.contacts-list -->
                 </div>
-                <!-- /.direct-chat-pane -->
               </div>
-              <!-- /.card-body -->
               <div class="card-footer">
                 <form action="#" method="post">
                   <div class="input-group">
@@ -317,11 +302,8 @@
                   </div>
                 </form>
               </div>
-              <!-- /.card-footer-->
             </div>
-            <!--/.direct-chat -->
 
-            <!-- TO DO List -->
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
@@ -339,25 +321,19 @@
                   </ul>
                 </div>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <ul class="todo-list" data-widget="todo-list">
                   <li>
-                    <!-- drag handle -->
                     <span class="handle">
                       <i class="fas fa-ellipsis-v"></i>
                       <i class="fas fa-ellipsis-v"></i>
                     </span>
-                    <!-- checkbox -->
                     <div  class="icheck-primary d-inline ml-2">
                       <input type="checkbox" value="" name="todo1" id="todoCheck1">
                       <label for="todoCheck1"></label>
                     </div>
-                    <!-- todo text -->
                     <span class="text">Design a nice theme</span>
-                    <!-- Emphasis label -->
                     <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                    <!-- General tools such as edit or delete-->
                     <div class="tools">
                       <i class="fas fa-edit"></i>
                       <i class="fas fa-trash-o"></i>
@@ -445,25 +421,19 @@
                   </li>
                 </ul>
               </div>
-              <!-- /.card-body -->
               <div class="card-footer clearfix">
                 <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
               </div>
             </div>
-            <!-- /.card -->
           </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
 
-            <!-- Map card -->
             <div class="card bg-gradient-primary">
               <div class="card-header border-0">
                 <h3 class="card-title">
                   <i class="fas fa-map-marker-alt mr-1"></i>
                   Visitors
                 </h3>
-                <!-- card tools -->
                 <div class="card-tools">
                   <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
                     <i class="far fa-calendar-alt"></i>
@@ -472,36 +442,28 @@
                     <i class="fas fa-minus"></i>
                   </button>
                 </div>
-                <!-- /.card-tools -->
               </div>
               <div class="card-body">
                 <div id="world-map" style="height: 250px; width: 100%;"></div>
               </div>
-              <!-- /.card-body-->
               <div class="card-footer bg-transparent">
                 <div class="row">
                   <div class="col-4 text-center">
                     <div id="sparkline-1"></div>
                     <div class="text-white">Visitors</div>
                   </div>
-                  <!-- ./col -->
                   <div class="col-4 text-center">
                     <div id="sparkline-2"></div>
                     <div class="text-white">Online</div>
                   </div>
-                  <!-- ./col -->
                   <div class="col-4 text-center">
                     <div id="sparkline-3"></div>
                     <div class="text-white">Sales</div>
                   </div>
-                  <!-- ./col -->
                 </div>
-                <!-- /.row -->
               </div>
             </div>
-            <!-- /.card -->
 
-            <!-- solid sales graph -->
             <div class="card bg-gradient-info">
               <div class="card-header border-0">
                 <h3 class="card-title">
@@ -521,7 +483,6 @@
               <div class="card-body">
                 <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
-              <!-- /.card-body -->
               <div class="card-footer bg-transparent">
                 <div class="row">
                   <div class="col-4 text-center">
@@ -530,7 +491,6 @@
 
                     <div class="text-white">Mail-Orders</div>
                   </div>
-                  <!-- ./col -->
                   <div class="col-4 text-center">
                     <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
                            data-fgColor="#39CCCC">
@@ -544,15 +504,10 @@
 
                     <div class="text-white">In-Store</div>
                   </div>
-                  <!-- ./col -->
                 </div>
-                <!-- /.row -->
               </div>
-              <!-- /.card-footer -->
             </div>
-            <!-- /.card -->
 
-            <!-- Calendar -->
             <div class="card bg-gradient-success">
               <div class="card-header border-0">
 
@@ -560,9 +515,7 @@
                   <i class="far fa-calendar-alt"></i>
                   Calendar
                 </h3>
-                <!-- tools card -->
                 <div class="card-tools">
-                  <!-- button with a dropdown -->
                   <div class="btn-group">
                     <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
                       <i class="fas fa-bars"></i>
@@ -581,24 +534,15 @@
                     <i class="fas fa-times"></i>
                   </button>
                 </div>
-                <!-- /. tools -->
               </div>
-              <!-- /.card-header -->
               <div class="card-body pt-0">
-                <!--The calendar -->
                 <div id="calendar" style="width: 100%"></div>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </section>
-          <!-- right col -->
         </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
 
   @endsection
