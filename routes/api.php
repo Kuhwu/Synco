@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ManagerApiContoller;
+use App\Http\Controllers\API\ClassApiContoller;
 
 
 /*
@@ -40,6 +41,13 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/admins/{id}',[ManagerApiContoller::class,'edit']);
     Route::post('/admins/{id}',[ManagerApiContoller::class,'update']);
     Route::delete('/admins/{id}',[ManagerApiContoller::class, 'delete']);
+
+
+
+    // Routes for ClassApiController   
+
+    Route::get('/classes',[ClassApiContoller::class,'list']);
+    Route::post('/classes',[ClassApiContoller::class,'add']);
 });
 
 
