@@ -139,6 +139,15 @@
               </p>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{url ('admin/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Teacher
+              </p>
+            </a>
+        </li>
         @elseif(Auth::user()->user_type == 2)
         <li class="nav-item">
             <a href="{{url ('teacher/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">

@@ -4,6 +4,7 @@ use App\Http\Controllers\WebAuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\teacherListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::group(['middleware' => 'admin'],function(){
 
     Route::get('/admin/dashboard',[DashboardController::class,'dashboard']);
     Route::get('/admin/admin/list',[AdminController::class,'list']);
+    Route::get('/admin/teacher/list',[teacherListController::class,'teacherList']);
 });
 
 Route::group(['middleware' => 'manager'],function(){
