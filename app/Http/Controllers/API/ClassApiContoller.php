@@ -34,5 +34,46 @@ class ClassApiContoller extends Controller
           'message' => 'Class Successfully Created'
         ], 201);
     }
+
+    
+    public function edit($id)
+    {
+        $class = ClassModel::find($id);
+
+        if (!$class) {
+            return response()->json(['error' => 'Class not found'], 404);
+        }
+
+        return response()->json(['class' => $class], 200);
+    }
+
+    public function update($id, Request $request)
+    {
+        $class = ClassModel::find($id);
+
+        if (!$class) {
+            return response()->json(['error' => 'Class not found'], 404);
+        }
+
+        $class->name = $request->input('name');
+        $class->status = $request->input('status');
+        $class->save();
+
+        return response()->json(['message' => 'Class successfully updated'], 200);
+    }
+
+    public function delete($id)
+    {
+        $class = ClassModel::find($id);
+
+        if (!$class) {
+            return response()->json(['error' => 'Class not found'], 404);
+        }
+
+        $class->delete();
+
+        return response()->json(['message' => 'Class successfully deleted'], 200);
+    }
+
     
 }

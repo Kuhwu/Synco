@@ -4,17 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Request;
 
 class ClassModel extends Model
 {
     use HasFactory;
 
-
+    
     protected $table = 'class';
+
+
+    static public function getSingle($id){
+        return ClassModel::find($id);
+    }
 
     static public function getRecord(){
         $return = ClassModel::select('class.*', 'users.name as created_by_name')
-                    ->join('users','users.id','class.created_by')
+                    ->join('users','users.id','class.created_by');
+
+                    if(!empty(Request::get('name'))){
+                        $return = $return->where('name','like', '%'.Request::get('name').'%');
+                    }
+
+                    if(!empty(Request::get('date'))){
+                        $return = $return->whereDate('created_at', '%'.Request::get('date'));
+                    }
+
+                    $return = $return->where('class.is_delete','=',0)
                     ->orderBy('class.id','desc')
                     ->paginate(10);
         

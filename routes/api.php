@@ -48,6 +48,9 @@ Route::middleware('auth:sanctum')->group(function(){
 
     Route::get('/classes',[ClassApiContoller::class,'list']);
     Route::post('/classes',[ClassApiContoller::class,'add']);
+    Route::get('/classes/{id}', [ClassApiContoller::class, 'edit']);
+    Route::put('/classes/{id}', [ClassApiContoller::class, 'update']);
+    Route::delete('/classes/{id}', [ClassApiContoller::class, 'delete']);
 });
 
 
