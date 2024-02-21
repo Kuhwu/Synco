@@ -35,6 +35,5 @@ class ClassModel extends Model
                     ->paginate(10);
         
         return $return;
-
     }
 }

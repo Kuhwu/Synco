@@ -7,6 +7,8 @@ use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ManagerApiContoller;
 use App\Http\Controllers\API\ClassApiContoller;
+use App\Http\Controllers\API\SubjectApiController;
+
 
 
 /*
@@ -52,6 +54,17 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::put('/classes/{id}', [ClassApiContoller::class, 'update']);
     Route::delete('/classes/{id}', [ClassApiContoller::class, 'delete']);
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/subjects', [SubjectApiController::class, 'list']);
+    Route::post('/subjects', [SubjectApiController::class, 'add']);
+    Route::get('/subjects/{id}', [SubjectApiController::class, 'edit']);
+    Route::put('/subjects/{id}', [SubjectApiController::class, 'update']);
+    Route::delete('/subjects/{id}', [SubjectApiController::class, 'delete']);
+});
+
+
+
 
 
 
