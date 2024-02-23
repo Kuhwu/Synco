@@ -8,7 +8,7 @@ class teacherListController extends Controller
 {
     public function teacherList()
     {
-        return view('admin.teacherList.list');
+        return view('Admin.admin.teacherlist.teacherlist');
     }
     
 }
