@@ -8,6 +8,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ManagerApiContoller;
 use App\Http\Controllers\API\ClassApiContoller;
 use App\Http\Controllers\API\SubjectApiController;
+use App\Http\Controllers\API\ClassSubjectApiController;
 
 
 
@@ -37,6 +38,7 @@ Route::get('/auth/logout',[UserController::class,'logout'])->middleware('auth:sa
 
 
 
+
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/admins',[ManagerApiContoller::class,'managerlist']);
     Route::post('/admins',[ManagerApiContoller::class,'add']);
@@ -45,8 +47,8 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::delete('/admins/{id}',[ManagerApiContoller::class, 'delete']);
 
 
+    // Routes for ClassApiController
 
-    // Routes for ClassApiController   
 
     Route::get('/classes',[ClassApiContoller::class,'list']);
     Route::post('/classes',[ClassApiContoller::class,'add']);
@@ -62,6 +64,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/subjects/{id}', [SubjectApiController::class, 'update']);
     Route::delete('/subjects/{id}', [SubjectApiController::class, 'delete']);
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/class_subjects', [ClassSubjectApiController::class, 'list']);
+    Route::get('/class_subjects/add', [ClassSubjectApiController::class, 'add']);
+    Route::post('/class_subjects/insert', [ClassSubjectApiController::class, 'insert']);
+    Route::get('/class_subjects/edit/{id}', [ClassSubjectApiController::class, 'edit']);
+    Route::put('/class_subjects/update/{id}', [ClassSubjectApiController::class, 'update']);
+    Route::delete('/class_subjects/delete/{id}', [ClassSubjectApiController::class, 'delete']);
+    Route::get('/class_subjects/{id}', [ClassSubjectApiController::class, 'getSingle']);
+    Route::put('/class_subjects/{id}', [ClassSubjectApiController::class, 'updateSingle']);       
+});
+
+
+
+
 
 
 
