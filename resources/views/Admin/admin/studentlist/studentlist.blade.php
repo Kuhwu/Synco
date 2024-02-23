@@ -33,6 +33,7 @@
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
+                      <th>Class</th>
                       <th>Created Date</th>
                     </tr>
                   </thead>
@@ -41,6 +42,7 @@
                       <tr>
                         <td>{{$value->name}}</td>
                         <td>{{$value->email}}</td>
+                        <td>{{$value->class_id}}</td>
                         <td>{{$value->created_at}}</td>
                         <td>
                           <a href="{{url('admin/student/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>

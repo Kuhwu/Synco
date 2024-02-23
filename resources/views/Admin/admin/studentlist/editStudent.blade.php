@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Date of Birth<span style="color: red;">*</span></label>
-                            <input type="date" class="form-control" required value = "{{old('date_of_birth')}}" name="date_of_birth">
+                            <input type="date" class="form-control" required value = "{{old('date_of_birth', $getRecord->date_of_birth)}}" name="date_of_birth">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Profile Picture<span style="color: red;">*</span></label>
@@ -63,8 +63,8 @@
                             <label>Status<span style="color: red;">*</span></label>
                             <select class="form-control" required name="status">
                                 <option value="">Select Status</option>
-                                <option value="0">Active</option>
-                                <option value="1">Inactive</option>  
+                                <option {{ (old('status', $getRecord->status) == 0) ? 'selected' : '' }} value="0">Active</option>
+                                <option {{ (old('status', $getRecord->status) == 1) ? 'selected' : '' }} value="1">Inactive</option>  
 
                             </select>
                         </div>
@@ -74,12 +74,13 @@
 
                   <div class="form-group">
                     <label>Email address<span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" name="email" value = "{{old('email')}}"  placeholder="Email" required>
+                    <input type="email" class="form-control" name="email" value = "{{old('email',  $getRecord->email)}}"  placeholder="Email" required>
                     <div style="color:red">{{$errors->first('email')}}</div>
                   </div>
                   <div class="form-group">
-                    <label>Password<span style="color: red;">*</span></label>
-                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    <label>Password<span style="color: red;"></span></label>
+                    <input type="text" class="form-control" name="password" placeholder="Password" required>
+                    <p>Do you want to change your password? Add a password. </p>
                   </div>
                 </div>
                 <!-- /.card-body -->
