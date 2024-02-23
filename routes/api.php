@@ -9,6 +9,7 @@ use App\Http\Controllers\API\ManagerApiContoller;
 use App\Http\Controllers\API\ClassApiContoller;
 use App\Http\Controllers\API\SubjectApiController;
 use App\Http\Controllers\API\ClassSubjectApiController;
+use App\Http\Controllers\API\ProjectApiController;
 
 
 
@@ -76,6 +77,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/class_subjects/{id}', [ClassSubjectApiController::class, 'updateSingle']);       
 });
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/projects/insert', [ProjectApiController::class, 'insert']);
+});
 
 
 

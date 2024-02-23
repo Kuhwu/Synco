@@ -43,6 +43,7 @@ class ManagerApiContoller extends Controller
         if(!$admin || $admin->user_type !== 1 || $admin->is_delete){
             return response()->json(['error' => 'Admin Not Found'], 404);
         }
+        
 
         return response()->json(['admin' => $admin],200);
     }
