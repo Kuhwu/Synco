@@ -3,28 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ClassModel;
+use App\Models\SubjectModel;
 use Auth;
 
-class ClassController extends Controller
+class SubjectController extends Controller
 {
-    public function classList()
+    public function subjectList()
     {
-        $data['getRecord'] = ClassModel::getRecord();
+        $data['getRecord'] = SubjectModel::getRecord();
 
-        $data['header_title'] = "Class List";
+        $data['header_title'] = "Subject List";
         return view('Admin.admin.classlist.classlist', $data);
     }
 
     public function add()
     {
-        $data['header_title'] = 'Add New Class';
+        $data['header_title'] = 'Add New Subject';
         return view('Admin.admin.classlist.addClass', $data);
     }
 
     public function insert(Request $request)
     {
-        $save = new ClassModel;
+        $save = new SubjectModel;
         $save->name = $request->name;
         $save->status = $request->status;
         $save->created_by = Auth::user()->id;
@@ -36,7 +36,7 @@ class ClassController extends Controller
 
     public function edit($id)
     {
-        $data['getRecord'] = ClassModel::getSingle($id);
+        $data['getRecord'] = SubjectModel::getSingle($id);
 
         if (!empty($data['getRecord'])) {
             $data['header_title'] = 'Edit Class';
@@ -48,7 +48,7 @@ class ClassController extends Controller
 
     public function update($id, Request $request)
     {
-        $save = ClassModel::getSingle($id);
+        $save = SubjectModel::getSingle($id);
         $save->name = $request->name;
         $save->status = $request->status;
         $save->save();
@@ -59,7 +59,7 @@ class ClassController extends Controller
 
     public function delete($id)
     {
-        $save = ClassModel::getSingle($id);
+        $save = SubjectModel::getSingle($id);
         $save->is_delete = 1;
         $save->save();
 

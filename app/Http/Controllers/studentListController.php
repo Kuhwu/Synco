@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\ClassModel;
+use App\Models\SubjectModel;
 use Hash;
 use Auth;
 use Str;
@@ -20,7 +20,7 @@ class studentListController extends Controller
 
     public function add()
     {
-        $data['getClass'] = ClassModel::getClass();
+        $data['getSubject'] = SubjectModel::getSubject();
         $data['header_title'] = "Add New Student";
         return view('Admin.admin.studentlist.addStudent',$data);
     }
@@ -61,7 +61,7 @@ class studentListController extends Controller
         $data['getRecord'] = User::getSingle($id);
 
         if (!empty($data['getRecord'])) {
-            $data['getClass'] = ClassModel::getClass();
+            $data['getSubject'] = SubjectModel::getSubject();
             $data['header_title'] = 'Edit Student';
             return view('Admin.admin.studentlist.editStudent', $data);
         } else {
