@@ -10,6 +10,8 @@ use App\Http\Controllers\API\ClassApiContoller;
 use App\Http\Controllers\API\SubjectApiController;
 use App\Http\Controllers\API\ClassSubjectApiController;
 use App\Http\Controllers\API\ProjectApiController;
+use App\Http\Controllers\API\AssignSubjectApiTeacherController;
+use App\Http\Controllers\API\StudentApiController;
 
 
 
@@ -50,12 +52,23 @@ Route::middleware('auth:sanctum')->group(function(){
 
     // Routes for ClassApiController
 
-
     Route::get('/classes',[ClassApiContoller::class,'list']);
     Route::post('/classes',[ClassApiContoller::class,'add']);
     Route::get('/classes/{id}', [ClassApiContoller::class, 'edit']);
     Route::put('/classes/{id}', [ClassApiContoller::class, 'update']);
     Route::delete('/classes/{id}', [ClassApiContoller::class, 'delete']);
+    
+});
+
+//MyStudents
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/students', [StudentApiController::class, 'list']);
+    Route::get('/students/add', [StudentApiController::class, 'add']);
+    Route::post('/students/insert', [StudentApiController::class, 'insert']);
+    Route::get('/students/{id}/edit', [StudentApiController::class, 'edit']);
+    Route::put('/students/{id}/edit', [StudentApiController::class, 'update']);
+    Route::delete('/students/{id}', [StudentApiController::class, 'delete']);
+    Route::get('/students/mystudents', [StudentApiController::class, 'myStudent']);
 });
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -69,13 +82,34 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/class_subjects', [ClassSubjectApiController::class, 'list']);
     Route::get('/class_subjects/add', [ClassSubjectApiController::class, 'add']);
-    Route::post('/class_subjects/insert', [ClassSubjectApiController::class, 'insert']);
+    Route::post('/class_subjects/delete', [ClassSubjectApiController::class, 'insert']);
     Route::get('/class_subjects/edit/{id}', [ClassSubjectApiController::class, 'edit']);
     Route::put('/class_subjects/update/{id}', [ClassSubjectApiController::class, 'update']);
     Route::delete('/class_subjects/delete/{id}', [ClassSubjectApiController::class, 'delete']);
     Route::get('/class_subjects/{id}', [ClassSubjectApiController::class, 'getSingle']);
     Route::put('/class_subjects/{id}', [ClassSubjectApiController::class, 'updateSingle']);       
 });
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/teachers', [TeacherApiController::class, 'list']);
+    Route::get('/teachers/add', [TeacherApiController::class, 'add']);
+    Route::post('/teachers/insert', [TeacherApiController::class, 'insert']);
+    Route::get('/teachers/edit/{id}', [TeacherApiController::class, 'edit']);
+    Route::put('/teachers/update/{id}', [TeacherApiController::class, 'update']);
+    Route::delete('/teachers/delete/{id}', [TeacherApiController::class, 'delete']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/assign_subject_teachers', [AssignSubjectApiTeacherController::class, 'list']);
+    Route::get('/assign_subject_teachers/add', [AssignSubjectApiTeacherController::class, 'add']);
+    Route::post('/assign_subject_teachers/insert', [AssignSubjectApiTeacherController::class, 'insert']);
+    Route::get('/assign_subject_teachers/edit/{id}', [AssignSubjectApiTeacherController::class, 'edit']);
+    Route::put('/assign_subject_teachers/update/{id}', [AssignSubjectApiTeacherController::class, 'update']);
+    Route::delete('/assign_subject_teachers/delete/{id}', [AssignSubjectApiTeacherController::class, 'delete']);
+});
+
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/projects/insert', [ProjectApiController::class, 'insert']);

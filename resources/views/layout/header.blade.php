@@ -201,6 +201,30 @@
               </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{url ('admin/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Teacher
+              </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{url ('admin/student/list')}}" class="nav-link @if(Request::segment(2) =='studentList') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Student
+              </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Class
+              </p>
+            </a>
+        </li>
         @endif
         <li class="nav-item">
             <a href="{{url ('logout')}}" class="nav-link ">

@@ -80,7 +80,7 @@ class studentListController extends Controller
         $student->name = trim($request->name);
         $student->last_name = trim($request->last_name);
         $student->gender = trim($request->gender);
-        $student->class_id = trim($request->class_id);
+        $student->subject_id = trim($request->subject_id);
         if(!empty($request->date_of_birth)){
             $student->date_of_birth = trim($request->date_of_birth);
         }
@@ -119,6 +119,18 @@ class studentListController extends Controller
         } else {
             abort(404);
         }
+    }
+
+    /*public function MyStudent($id){
+        $data['getRecord'] = (array) User::getTeacherStudent(Auth::user()->id);
+        $data['header_title'] = 'My Student List';
+        return view('Admin.admin.teacher.my_student',$data);
+    }*/
+
+    public function MyStudent($id){
+        $data['getRecord'] = User::getTeacherStudent(Auth::user());
+        $data['header_title'] = 'My Student List';
+        return view('Admin.admin.teacher.my_student',$data);
     }
 }
     
