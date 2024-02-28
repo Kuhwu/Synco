@@ -13,7 +13,7 @@ class teacherListController extends Controller
 {
     public function teacherList()
     {
-        $data['getRecord'] = User::getStudent();
+        $data['getTeacher'] = User::getTeacher();
         $data['header_title'] = "Teacher List";
         return view('Admin.admin.teacherlist.teacherlist',$data);
     }
@@ -22,7 +22,7 @@ class teacherListController extends Controller
     {
         $data['getSubject'] = SubjectModel::getSubject();
         $data['header_title'] = "Add New Teacher";
-        return view('Admin.admin.teachertlist.addTeacher',$data);
+        return view('Admin.admin.teacherlist.addTeacher',$data);
     }
 
     public function insert(Request $request){
@@ -30,13 +30,13 @@ class teacherListController extends Controller
             'email' => 'required|email|unique:users'
         ]);
 
-        $student = new User;
-        $student->name = trim($request->name);
-        $student->last_name = trim($request->last_name);
-        $student->gender = trim($request->gender);
-        $student->class_id = trim($request->class_id);
+        $teacher = new User;
+        $teacher->name = trim($request->name);
+        $teacher->last_name = trim($request->last_name);
+        $teacher->gender = trim($request->gender);
+        $teacher->class_id = trim($request->class_id);
         if(!empty($request->date_of_birth)){
-            $student->date_of_birth = trim($request->date_of_birth);
+            $teacher->date_of_birth = trim($request->date_of_birth);
         }
         if(!empty($request->file('profile_pic'))){
             $ext = $request->file('profile_pic')->getClientOriginalExtension();
@@ -45,22 +45,22 @@ class teacherListController extends Controller
             $filename = strtolower($randomStr).'.'.$ext;
             $file->move('uploads/profile/', $filename);
 
-            $student->profile_pic = $filename;
+            $teacher->profile_pic = $filename;
         }
-        $student->status = trim($request->status);
-        $student->email = trim($request->email);
-        $student->password = Hash::make($request->password);
-        $student->user_type = 3;
-        $student->save();
+        $teacher->status = trim($request->status);
+        $teacher->email = trim($request->email);
+        $teacher->password = Hash::make($request->password);
+        $teacher->user_type = 2;
+        $teacher->save();
 
         return redirect('admin/teacher/list')->with('success','Student Successful Created');
     }
 
     public function edit($id)
     {
-        $data['getRecord'] = User::getSingle($id);
+        $data['getTeacher'] = User::getSingle($id);
 
-        if (!empty($data['getRecord'])) {
+        if (!empty($data['getTeacher'])) {
             $data['getSubject'] = SubjectModel::getSubject();
             $data['header_title'] = 'Edit Student';
             return view('Admin.admin.teacherlist.editTeacher', $data);
@@ -76,13 +76,13 @@ class teacherListController extends Controller
             'email' => 'required|email|unique:users'.$id
         ]);
 
-        $student = User::getSingle($id);
-        $student->name = trim($request->name);
-        $student->last_name = trim($request->last_name);
-        $student->gender = trim($request->gender);
-        $student->subject_id = trim($request->subject_id);
+        $teacher = User::getSingle($id);
+        $teacher->name = trim($request->name);
+        $teacher->last_name = trim($request->last_name);
+        $teacher->gender = trim($request->gender);
+        $teacher->subject_id = trim($request->subject_id);
         if(!empty($request->date_of_birth)){
-            $student->date_of_birth = trim($request->date_of_birth);
+            $teacher->date_of_birth = trim($request->date_of_birth);
         }
         if(!empty($request->file('profile_pic'))){
             $ext = $request->file('profile_pic')->getClientOriginalExtension();
@@ -91,15 +91,15 @@ class teacherListController extends Controller
             $filename = strtolower($randomStr).'.'.$ext;
             $file->move('uploads/profile/', $filename);
 
-            $student->profile_pic = $filename;
+            $teacher->profile_pic = $filename;
         }
-        $student->status = trim($request->status);
-        $student->email = trim($request->email);
+        $teacher->status = trim($request->status);
+        $teacher->email = trim($request->email);
         if(!empty($request->password))
         {
-            $student->password = Hash::make($request->password);
+            $teacher->password = Hash::make($request->password);
         }
-        $student->save();
+        $teacher->save();
 
         return redirect('admin/teacher/list')->with('success','Teacher Successful Updated');
         
@@ -109,7 +109,7 @@ class teacherListController extends Controller
     public function delete($id)
     {
         
-        $getRecord = User::getSingle($id);
+        $getTeacher = User::getSingle($id);
 
         if (!empty($getRecord)) {
             $getRecord->is_delete = 1;

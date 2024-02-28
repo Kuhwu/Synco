@@ -13,7 +13,7 @@ class studentListController extends Controller
 {
     public function studentList()
     {
-        $data['getRecord'] = User::getStudent();
+        $data['getStudent'] = User::getStudent();
         $data['header_title'] = "Student List";
         return view('Admin.admin.studentlist.studentlist',$data);
     }
@@ -58,9 +58,9 @@ class studentListController extends Controller
 
     public function edit($id)
     {
-        $data['getRecord'] = User::getSingle($id);
+        $data['getStudent'] = User::getSingle($id);
 
-        if (!empty($data['getRecord'])) {
+        if (!empty($data['getStudent'])) {
             $data['getSubject'] = SubjectModel::getSubject();
             $data['header_title'] = 'Edit Student';
             return view('Admin.admin.studentlist.editStudent', $data);
@@ -109,11 +109,11 @@ class studentListController extends Controller
     public function delete($id)
     {
         
-        $getRecord = User::getSingle($id);
+        $getStudent = User::getSingle($id);
 
         if (!empty($getRecord)) {
-            $getRecord->is_delete = 1;
-            $getRecord->save();
+            $getStudent->is_delete = 1;
+            $getStudent->save();
 
             return redirect()->back()->with('success','Student Successful Deleted');
         } else {
@@ -134,4 +134,3 @@ class studentListController extends Controller
     }
 }
     
-

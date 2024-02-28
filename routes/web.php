@@ -7,6 +7,7 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\teacherListController;
 use App\Http\Controllers\studentListController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,16 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/admin/class/delete/{id}',[SubjectController::class,'delete']);     
     Route::post('/admin/class/edit/{id}',[SubjectController::class,'update']);    
     Route::post('/admin/class/add',[SubjectController::class,'insert'])->name('insert');
+
+    //project
+    Route::get('admin/project/list', [ProjectController::class, 'project']);
+    Route::get('admin/project/project/add', [ProjectController::class, 'add']);
+    Route::post('admin/ajax_get_subject', [ProjectController::class, 'ajax_get_subject']);
+    Route::post('admin/project/project/add', [ProjectController::class, 'insert']);
+    Route::get('admin/project/project/edit/{id}', [ProjectController::class, 'edit']);
+    Route::post('admin/project/project/edit/{id}', [ProjectController::class, 'update']);
+
+    Route::post('admin/project/project/delete/{id}', [ProjectController::class, 'delete']);
 });
 
 Route::group(['middleware' => 'manager'],function(){
@@ -93,12 +104,12 @@ Route::group(['middleware' => 'manager'],function(){
      Route::post('/manager/student/add',[studentListController::class,'insert'])->name('insert');
  
      //class
-     Route::get('/manager/class/list',[ClassController::class,'classList']);
-     Route::get('/manager/class/add',[ClassController::class,'add']);
-     Route::get('/manager/class/edit/{id}',[ClassController::class,'edit']);   
-     Route::get('/manager/class/delete/{id}',[ClassController::class,'delete']);     
-     Route::post('/manager/class/edit/{id}',[ClassController::class,'update']);    
-     Route::post('/manager/class/add',[ClassController::class,'insert'])->name('insert');
+     Route::get('/manager/class/list',[SubjectController::class,'classList']);
+     Route::get('/manager/class/add',[SubjectController::class,'add']);
+     Route::get('/manager/class/edit/{id}',[SubjectController::class,'edit']);   
+     Route::get('/manager/class/delete/{id}',[SubjectController::class,'delete']);     
+     Route::post('/manager/class/edit/{id}',[SubjectController::class,'update']);    
+     Route::post('/manager/class/add',[SubjectController::class,'insert'])->name('insert');
 });
 
 Route::group(['middleware' => 'teacher'],function(){
