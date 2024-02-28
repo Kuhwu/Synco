@@ -16,7 +16,8 @@ class ProjectController extends Controller
         $data['header_title'] = 'Project';
         return view('Admin.admin.homework.list1', $data);
     }
-    public function add(){
+    
+    public static function add(){
         $data['getSubject'] = SubjectModel::getSubject();
         $data['header_title'] = 'Add New Project';
         return view('Admin.admin.homework.add', $data);
@@ -24,11 +25,11 @@ class ProjectController extends Controller
     public function insert(Request $request)
     {
         $project = new ProjectModel;
-        $project->class_name = trim($request->class_name);
-        $project->subject_name = trim($request->subject_name);
-        $project->project_date = trim($request->project_date);
-        $project->submission_date = trim($request->submission_date);
-        $project->description = trim($request->description);
+        $project->class_name = $request->class_name;
+        $project->subject_name = $request->subject_name;
+        $project->project_date = $request->project_date;
+        $project->submission_date = $request->submission_date;
+        $project->description = $request->description;
         $project->created_by = Auth::user()->id;
 
         if(!empty($request->file('document_file'))){

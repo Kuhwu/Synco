@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 
-class Subject extends Model
+class SubjectModel extends Model
 {
     use HasFactory;
 
@@ -35,7 +35,7 @@ class Subject extends Model
         return $query->where('subject.is_delete', 0)->orderBy('subject.id', 'desc')->paginate(10);
     }
 
-    public function getSubject() {
+    public static function getSubject() {
         return self::select('subject.*')
             ->join('users', 'users.id', 'subject.created_by')
             ->where('subject.is_delete', 0)

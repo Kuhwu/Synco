@@ -28,17 +28,17 @@
 
                           <div class="form-group">
                             <label>Class <span style="color:red">*</span></label>
-                            <select class="form-control" id="getClass" name="class_id" required>
+                            <select class="form-control"  name="class_name" required>
                                 <option value="">Select Subject</option>
                                 @foreach($getSubject as $subject)
-                                <option value="{{ $subject->id}}">{{ $subject->name}}</option>
+                                <option value="{{ $subject->name}}">{{ $subject->name}}</option>
                                 @endforeach
                             </select>
                           </div>
 
                           <div class="form-group">
                             <label>Project Name <span style="color:red">*</span></label>
-                            <input type="text" class="form-control" name="subject_id" id="getSubject" value="{{ $getRecord->subject->name ?? '' }}" >
+                            <input type="text" class="form-control" name="subject_name" id="getSubject" value="{{ $getRecord->subject->name ?? '' }}" >
                         </div>
 
                           <div class="form-group">

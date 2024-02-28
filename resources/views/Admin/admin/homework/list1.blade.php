@@ -39,7 +39,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @forelse($getRecord as $value)
+                    @foreach($getRecord as $value)
                       <tr>
                         <td>{{ $value->id}}</td>
                         <td>{{ $value->class_name}}</td>
@@ -55,17 +55,15 @@
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
                         </form>
                       </td>
+                      
                         
                       </tr>
-                      @empty
-                      <tr>
-                        <td colspan="100%> Record not Found</td>
-                      </tr>
-                     @endforelse
+
+                     @endforeach
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
-                  {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                  {!! $getRecord->appends(request()->except('page'))->links() !!}
                 </div>
               </div>
             </div>
