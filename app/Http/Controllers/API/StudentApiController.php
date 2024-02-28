@@ -34,8 +34,7 @@ class StudentApiController extends Controller
             'gender' => 'required',
             'subject_id' => 'required',
             'status' => 'required',
-            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming 2MB limit for profile picture
-            // Add other validation rules here as needed
+            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $student = new User;
@@ -75,7 +74,6 @@ class StudentApiController extends Controller
     {
         $request->validate([
             'email' => 'required|email|unique:users,email,' . $id,
-            // Add other validation rules here as needed
         ]);
 
         $student = User::find($id);
@@ -122,10 +120,14 @@ class StudentApiController extends Controller
     public function myStudent()
     {
         $user = Auth::user();
-    
+
         if ($user->user_type == 2) {
             $getRecord = User::getTeacherStudent($user->id);
             return response()->json(['getRecord' => $getRecord, 'header_title' => 'My Student List']);
+        } elseif ($user->user_type == 3) {
+            return response()->json(['student' => $user]);
+        } else {
+            return response()->json(['error' => 'Unauthorized'], 403);
         }
     }
 }
