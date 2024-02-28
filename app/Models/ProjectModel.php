@@ -11,26 +11,29 @@ class ProjectModel extends Model
 
     protected $table = 'project';
 
-    static public function getSingle($id)
-    {
+
+
+    static public function getSingle($id){
         return self::find($id);
     }
-    public static function getRecord() {
-        return self::select('project.*')
-            ->join('users', 'users.id', '=', 'project.created_by')
-            ->orderBy('project.id', 'desc')
-            ->where('project.is_delete', 0)
-            ->paginate(20);
+
+
+
+    static public function getRecord(){
+        $return = ProjectModel::select('project.*')
+                    ->join('users', 'users.id', '=', 'project.created_by')
+                    ->orderBy('project.id', 'desc')
+                    ->where('project.is_delete','=',0)
+                    ->paginate(20);
+        
+        return $return;
     }
 
-    public function getDocument()
-    {
-        if(!empty($this->document_file) && file_exists('upload/project/' .$this->document_file))
-        {
-            return url('upload/project/' .$this->document_file);
+    public function getDocument(){
+        if(!empty($this->document_file) && file_exists('upload/project/' . $this->document_file)){
+            return url('upload/project/' . $this->document_file);
         }
-        else
-        {
+        else{
             return "";
         }
     }

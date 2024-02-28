@@ -4,52 +4,43 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Request;
-class SubjectModel extends Model
+use Illuminate\Support\Facades\Request;
+
+class Subject extends Model
 {
     use HasFactory;
 
     protected $table = 'subject';
 
-
-    static public function getSingle($id){
-        return SubjectModel::find($id);
+    public function getSingle($id) {
+        return self::find($id);
     }
 
-    static public function getRecord(){
-        $return = SubjectModel::select('subject.*', 'users.name as created_by_name')
-                        ->join('users','users.id','subject.created_by');
+    public function getRecord() {
+        $query = self::select('subject.*', 'users.name as created_by_name')
+            ->join('users', 'users.id', 'subject.created_by');
 
-                        if(!empty(Request::get(''))) {
-                            $return = $return->where('subject.name','like', '%'.Request::get('').'%');
-                        }
+        if (!empty(Request::get(''))) {
+            $query->where('subject.name', 'like', '%' . Request::get('') . '%');
+        }
 
-                        if(!empty(Request::get('type'))) {
-                            $return = $return->where('subject.type', '='.Request::get('type'));
-                        }
+        if (!empty(Request::get('type'))) {
+            $query->where('subject.type', '=', Request::get('type'));
+        }
 
-                        if(!empty(Request::get('date'))) {
-                            $return = $return->whereDate('subject.created_at', '='.Request::get('date').'%');
-                        }
+        if (!empty(Request::get('date'))) {
+            $query->whereDate('subject.created_at', '=', Request::get('date'));
+        }
 
-                        $return = $return->where('subject.is_delete', '=', 0)
-                        ->orderBy('subject.id','desc')
-                        ->paginate(10);
-
-        return $return;
+        return $query->where('subject.is_delete', 0)->orderBy('subject.id', 'desc')->paginate(10);
     }
 
-    static public function getSubject(){
-        $return = SubjectModel::select('subject.*')
-                        ->join('users','users.id','subject.created_by')
-                        ->where('subject.is_delete','=',0)
-                        ->where('subject.status','=',0);
-        $return = $return->orderBy('subject.id','desc')
-                        ->get();
-        
-        return $return;
+    public function getSubject() {
+        return self::select('subject.*')
+            ->join('users', 'users.id', 'subject.created_by')
+            ->where('subject.is_delete', 0)
+            ->where('subject.status', 0)
+            ->orderBy('subject.id', 'desc')
+            ->get();
     }
-
-
-
 }
