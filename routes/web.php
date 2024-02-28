@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\teacherListController;
 use App\Http\Controllers\studentListController;
-use App\Http\Controllers\ClassController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,12 +57,12 @@ Route::group(['middleware' => 'admin'],function(){
     Route::post('/admin/student/add',[studentListController::class,'insert'])->name('insert');
 
     //class
-    Route::get('/admin/class/list',[ClassController::class,'classList']);
-    Route::get('/admin/class/add',[ClassController::class,'add']);
-    Route::get('/admin/class/edit/{id}',[ClassController::class,'edit']);   
-    Route::get('/admin/class/delete/{id}',[ClassController::class,'delete']);     
-    Route::post('/admin/class/edit/{id}',[ClassController::class,'update']);    
-    Route::post('/admin/class/add',[ClassController::class,'insert'])->name('insert');
+    Route::get('/admin/class/list',[SubjectController::class,'subjectList']);
+    Route::get('/admin/class/add',[SubjectController::class,'add']);
+    Route::get('/admin/class/edit/{id}',[SubjectController::class,'edit']);   
+    Route::get('/admin/class/delete/{id}',[SubjectController::class,'delete']);     
+    Route::post('/admin/class/edit/{id}',[SubjectController::class,'update']);    
+    Route::post('/admin/class/add',[SubjectController::class,'insert'])->name('insert');
 });
 
 Route::group(['middleware' => 'manager'],function(){
@@ -75,6 +75,30 @@ Route::group(['middleware' => 'manager'],function(){
 
     Route::post('/manager/manager/edit/{id}',[ManagerController::class,'update']);    
     Route::post('/manager/manager/add',[ManagerController::class,'insert'])->name('insert');
+
+     //teacher
+     Route::get('/manager/teacher/list',[teacherListController::class,'teacherList']);
+     Route::get('/manager/teacher/add',[teacherListController::class,'add']);
+     Route::get('/manager/teacher/edit/{id}',[teacherListController::class,'edit']);   
+     Route::get('/manager/teacher/delete/{id}',[teacherListController::class,'delete']);     
+     Route::post('/manager/teacher/edit/{id}',[teacherListController::class,'update']);    
+     Route::post('/manager/teacher/add',[teacherListController::class,'insert'])->name('insert');
+ 
+     //student
+     Route::get('/manager/student/list',[studentListController::class,'studentList']);
+     Route::get('/manager/student/add',[studentListController::class,'add']);
+     Route::get('/manager/student/edit/{id}',[studentListController::class,'edit']);   
+     Route::get('/manager/student/delete/{id}',[studentListController::class,'delete']);     
+     Route::post('/manager/student/edit/{id}',[studentListController::class,'update']);    
+     Route::post('/manager/student/add',[studentListController::class,'insert'])->name('insert');
+ 
+     //class
+     Route::get('/manager/class/list',[ClassController::class,'classList']);
+     Route::get('/manager/class/add',[ClassController::class,'add']);
+     Route::get('/manager/class/edit/{id}',[ClassController::class,'edit']);   
+     Route::get('/manager/class/delete/{id}',[ClassController::class,'delete']);     
+     Route::post('/manager/class/edit/{id}',[ClassController::class,'update']);    
+     Route::post('/manager/class/add',[ClassController::class,'insert'])->name('insert');
 });
 
 Route::group(['middleware' => 'teacher'],function(){

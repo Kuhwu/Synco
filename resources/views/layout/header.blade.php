@@ -160,7 +160,7 @@
             <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
-                Class
+                Subject
               </p>
             </a>
         </li>
