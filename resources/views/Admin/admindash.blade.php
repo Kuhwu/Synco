@@ -1,25 +1,23 @@
 @extends('layout.app')
-  @section('content')
+@section('content')
 
 <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboards</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Assigned</h1>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
+    <!-- Dropdown for Due Date -->
+    <div class="container-fluid mt-3">
         <div class="row">
+<<<<<<< HEAD
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -83,5 +81,36 @@
         </div>
         <!-- /.row -->
         <!-- Main row -->
+=======
+            <div class="col-sm-12 text-center">
+                <select class="form-control">
+                    <option value="">No Due Date</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-  @endsection
+    <!-- Additional "No Due Date" options as dropdowns -->
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <!-- Dropdown for second "No Due Date" -->
+                <select class="form-control">
+                    <option value="">This Week</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12 text-center">
+                <!-- Dropdown for third "No Due Date" -->
+                <select class="form-control">
+                    <option value="">Next Week</option>
+                </select>
+            </div>
+        </div>
+    </div>
+>>>>>>> 4ebe37029e022ded209ccd46cb31f227af4af4a0
+
+    <!-- Rest of your content goes here -->
+</div>
+@endsection

@@ -253,4 +253,3 @@ class studentListController extends Controller
 
 }
     
-

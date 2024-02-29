@@ -71,6 +71,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/students/mystudents', [StudentApiController::class, 'myStudent']);
 });
 
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/subjects', [SubjectApiController::class, 'list']);
     Route::post('/subjects', [SubjectApiController::class, 'add']);
@@ -78,6 +79,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/subjects/{id}', [SubjectApiController::class, 'update']);
     Route::delete('/subjects/{id}', [SubjectApiController::class, 'delete']);
 });
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/class_subjects', [ClassSubjectApiController::class, 'list']);
@@ -100,6 +102,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/teachers/delete/{id}', [TeacherApiController::class, 'delete']);
 });
 
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/assign_subject_teachers', [AssignSubjectApiTeacherController::class, 'list']);
     Route::get('/assign_subject_teachers/add', [AssignSubjectApiTeacherController::class, 'add']);
@@ -110,9 +113,11 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/projects/insert', [ProjectApiController::class, 'insert']);
+    Route::get('/project/{id}', [ProjectApiController::class, 'edit']);
+    Route::put('/project/{id}', [ProjectApiController::class, 'update']);
+    Route::delete('/project/{id}', [ProjectApiController::class, 'delete']);
 });
 
 

@@ -2,7 +2,6 @@
   @section('content')
 
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -10,16 +9,15 @@
             <h1>Add New Student</h1>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
-    <!-- Main content -->
+  
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
-              <!-- form start -->
               <form action="" method="POST">
               {{csrf_field()}}
                 <div class="card-body">
@@ -42,9 +40,15 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
+<<<<<<< HEAD
                             <label>Subject<span style="color: red;">*</span></label>
                             <select class="form-control" required name="subject">
                                 <option value="">Select Subject</option>
+=======
+                            <label>Class<span style="color: red;">*</span></label>
+                            <select class="form-control"  name="subject">
+                                <option value="">Select Class</option>
+>>>>>>> 4ebe37029e022ded209ccd46cb31f227af4af4a0
                                 @foreach($getSubject as $value)
                                   <option value ="{{ $value->id }}">{{ $value->name }}</option> 
                                 @endforeach
