@@ -22,11 +22,7 @@ class teacherListController extends Controller
     {
         $data['getSubject'] = SubjectModel::getSubject();
         $data['header_title'] = "Add New Teacher";
-<<<<<<< HEAD
-        return view('Admin.admin.teacherlist.addTeachers',$data);
-=======
         return view('Admin.admin.teacherlist.addTeacher',$data);
->>>>>>> 4ebe37029e022ded209ccd46cb31f227af4af4a0
     }
 
     public function insert(Request $request){
