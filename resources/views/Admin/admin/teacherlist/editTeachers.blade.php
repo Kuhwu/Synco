@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1>Edit Student</h1>
+            <h1>Edit Teacher</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -26,25 +26,25 @@
                     <div class = "row">
                         <div class="form-group col-md-6">
                             <label>First Name<span style="color: red;">*</span></label>
-                            <input type="text" class="form-control" name="name" value = "{{old('name', $getRecord->name)}}" placeholder="First Name" required>
+                            <input type="text" class="form-control" name="name" value = "{{old('name', $getTeacher->name)}}" placeholder="First Name" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Last Name<span style="color: red;">*</span></label>
-                            <input type="text" class="form-control" name="last_name" value = "{{old('last_name', $getRecord->last_name)}}" placeholder="Last Name" required>
+                            <input type="text" class="form-control" name="last_name" value = "{{old('last_name', $getTeacher->last_name)}}" placeholder="Last Name" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Gender<span style="color: red;">*</span></label>
                             <select class="form-control" required name="gender">
                                 <option value="">Select Gender</option>
-                                <option {{  (old('gender', $getRecord->gender) == 'Male') ? 'selected' : '' }} value="Male">Male</option>
-                                <option {{  (old('gender', $getRecord->gender) == 'Female') ? 'selected' : '' }} value="Female">Female</option>  
+                                <option {{  (old('gender', $getTeacher->gender) == 'Male') ? 'selected' : '' }} value="Male">Male</option>
+                                <option {{  (old('gender', $getTeacher->gender) == 'Female') ? 'selected' : '' }} value="Female">Female</option>  
 
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Subject<span style="color: red;">*</span></label>
+                            <label>Class<span style="color: red;">*</span></label>
                             <select class="form-control" required name="class_id">
-                                <option value="">Select Subject</option>
+                                <option value="">Select Class</option>
                                 @foreach($getClass as $value)
                                   <option {{  (old('class_id', $getRecord->class_id) == $value->id) ? 'selected' : '' }} value ="{{ $value->id }}">{{ $value->name }}</option> 
                                 @endforeach
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Date of Birth<span style="color: red;">*</span></label>
-                            <input type="date" class="form-control" required value = "{{old('date_of_birth', $getRecord->date_of_birth)}}" name="date_of_birth">
+                            <input type="date" class="form-control" required value = "{{old('date_of_birth', $getTeacher->date_of_birth)}}" name="date_of_birth">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Profile Picture<span style="color: red;">*</span></label>

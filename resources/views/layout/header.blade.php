@@ -179,10 +179,18 @@
             <a href="{{url ('student/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                My Projects
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url ('/profile')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+        </li>
 
         @elseif(Auth::user()->user_type == 4)
         <li class="nav-item">
@@ -202,7 +210,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url ('admin/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
+            <a href="{{url ('manager/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Teacher
@@ -210,7 +218,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url ('admin/student/list')}}" class="nav-link @if(Request::segment(2) =='studentList') active @endif">
+            <a href="{{url ('manager/student/list')}}" class="nav-link @if(Request::segment(2) =='studentLists') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Student
@@ -218,10 +226,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
+            <a href="{{url ('manager/subject/list')}}" class="nav-link @if(Request::segment(2) =='subjectLists') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
-                Class
+                Subject
               </p>
             </a>
         </li>

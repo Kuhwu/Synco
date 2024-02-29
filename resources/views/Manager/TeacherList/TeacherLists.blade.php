@@ -6,11 +6,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Student List (Total: {{ $getStudent->total() }} )</h1>
+            <h1>Teacher List (Total: {{ $getTeacher->total() }} )</h1>
           </div>
 
           <div class="col-sm-6" style="text-align: right;">
-          <a href="{{url('admin/student/add')}}" class="btn btn-primary"> Add New Student</a>
+          <a href="{{url('manager/teacher/add')}}" class="btn btn-primary"> Add New Teacher</a>
           </div>
 
         </div>
@@ -25,7 +25,7 @@
           @include ('message')
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Student List</h3>
+                <h3 class="card-title">Teacher List</h3>
               </div>
               <div class="card-body p-0">
                 <table class="table table-striped">
@@ -33,26 +33,25 @@
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Class</th>
                       <th>Created Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($getStudent as $value)
+                    @foreach($getTeacher as $value)
                       <tr>
                         <td>{{$value->name}}</td>
                         <td>{{$value->email}}</td>
                         <td>{{$value->created_at}}</td>
                         <td>
-                          <a href="{{url('admin/student/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                          <a href="{{url('admin/student/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                          <a href="{{url('manager/teacher/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                          <a href="{{url('manager/teacher/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
-                  {!! $getStudent->appends(request()->except('page'))->links() !!}
+                  {!! $getTeacher->appends(request()->except('page'))->links() !!}
                 </div>
               </div>
             </div>

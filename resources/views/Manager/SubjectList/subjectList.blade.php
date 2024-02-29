@@ -10,7 +10,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align: right;">
-          <a href="{{url('admin/class/add')}}" class="btn btn-primary"> Add New Subject</a>
+          <a href="{{url('manager/subject/add')}}" class="btn btn-primary"> Add New Subject</a>
           </div>
 
         </div>
@@ -40,7 +40,7 @@
 
                   <div class="form-group col-md-3">
                     <button class="btn btn-primary" type="submit" style="margin-top: 30px;"> Search</button>
-                    <a href="{{url('admin/class/list')}}" class="btn btn-success" style="margin-top: 30px;" > Reset</a>
+                    <a href="{{url('manager/subject/list')}}" class="btn btn-success" style="margin-top: 30px;" > Reset</a>
                   </div>
                   </div>
                 </div>
@@ -84,8 +84,8 @@
                         <td>{{ $value->created_by_name }}</td>
                         <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                         <td>
-                            <a href="{{url('admin/class/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="{{url('admin/class/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                            <a href="{{url('manager/subject/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{url('manager/subject/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                      </tr>
                      @endforeach

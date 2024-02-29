@@ -10,7 +10,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align: right;">
-          <a href="{{url('admin/student/add')}}" class="btn btn-primary"> Add New Student</a>
+          <a href="{{url('manager/student/add')}}" class="btn btn-primary"> Add New Student</a>
           </div>
 
         </div>
@@ -33,7 +33,6 @@
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Class</th>
                       <th>Created Date</th>
                     </tr>
                   </thead>
@@ -44,8 +43,8 @@
                         <td>{{$value->email}}</td>
                         <td>{{$value->created_at}}</td>
                         <td>
-                          <a href="{{url('admin/student/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
-                          <a href="{{url('admin/student/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                          <a href="{{url('manager/student/edit/'.$value->id)}}" class="btn btn-primary">Edit</a>
+                          <a href="{{url('manager/student/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                       </tr>
                     @endforeach
