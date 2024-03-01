@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function teacherStudents()
     {
-        return $this->hasMany(AssignSubjectApiTeacher::class, 'teacher_id', 'id');
+        return $this->hasMany(AssignSubjectApiTeacherModel::class, 'subject_id', 'id');
     }
 
     public function getSingle($id)
@@ -48,9 +48,9 @@ class User extends Authenticatable
 
     static function getTeacherStudent($teacher_id)
     {
-        return self::select('users.*', 'subject.name as subject_name')
+        return self::select('users.*', 'subjects.name as subjects_name')
             ->join('assign_subject_teacher', 'assign_subject_teacher.teacher_id', '=', 'users.id')
-            ->join('subject', 'subject.id', '=', 'assign_subject_teacher.subject_id')
+            ->join('subjects', 'subjects.id', '=', 'assign_subject_teacher.subject_id')
             ->where('assign_subject_teacher.teacher_id', $teacher_id)
             ->where('users.user_type', 3)
             ->where('users.is_delete', 0)
@@ -99,4 +99,7 @@ class User extends Authenticatable
     static public function getTokenSingle($remember_token){
         return User::where('remember_token', '=', $remember_token)->first();
     }
+    
+
+    
 }

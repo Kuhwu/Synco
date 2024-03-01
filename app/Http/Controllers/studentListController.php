@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\SubjectModel;
 use Hash;
 use Auth;
 use Str;
@@ -20,7 +19,6 @@ class studentListController extends Controller
 
     public function add()
     {
-        $data['getSubject'] = SubjectModel::getSubject();
         $data['header_title'] = "Add New Student";
         return view('Admin.admin.studentlist.addStudent',$data);
     }
@@ -32,9 +30,6 @@ class studentListController extends Controller
 
         $student = new User;
         $student->name = trim($request->name);
-        $student->last_name = trim($request->last_name);
-        $student->gender = trim($request->gender);
-        $student->class_id = trim($request->class_id);
         if(!empty($request->date_of_birth)){
             $student->date_of_birth = trim($request->date_of_birth);
         }
@@ -61,7 +56,6 @@ class studentListController extends Controller
         $data['getRecord'] = User::getSingle($id);
 
         if (!empty($data['getRecord'])) {
-            $data['getSubject'] = SubjectModel::getSubject();
             $data['header_title'] = 'Edit Student';
             return view('Admin.admin.studentlist.editStudent', $data);
         } else {
@@ -78,9 +72,6 @@ class studentListController extends Controller
 
         $student = User::getSingle($id);
         $student->name = trim($request->name);
-        $student->last_name = trim($request->last_name);
-        $student->gender = trim($request->gender);
-        $student->subject_id = trim($request->subject_id);
         if(!empty($request->date_of_birth)){
             $student->date_of_birth = trim($request->date_of_birth);
         }

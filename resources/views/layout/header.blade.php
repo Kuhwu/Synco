@@ -139,20 +139,11 @@
               </p>
             </a>
         </li>
-
-        <li class="nav-item">
-            <a href="{{url ('admin/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Teacher
-              </p>
-            </a>
-        </li>
         <li class="nav-item">
             <a href="{{url ('admin/student/list')}}" class="nav-link @if(Request::segment(2) =='studentList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
-                Student
+                Users
               </p>
             </a>
         </li>
@@ -160,20 +151,26 @@
             <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
-                Subject
+                Project Created
               </p>
             </a>
         </li>
-
-        @elseif(Auth::user()->user_type == 2)
         <li class="nav-item">
-            <a href="{{url ('teacher/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
+              <i class="nav-icon far fa-user"></i>
               <p>
-                Dashboard
+                My Account
               </p>
             </a>
-          </li>
+        </li>
+        <li class="nav-item">
+            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Change Password
+              </p>
+            </a>
+        </li>
         @elseif(Auth::user()->user_type == 3)
         <li class="nav-item">
             <a href="{{url ('student/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
@@ -183,37 +180,11 @@
               </p>
             </a>
           </li>
-
-        @elseif(Auth::user()->user_type == 4)
-        <li class="nav-item">
-            <a href="{{url ('manager/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-        <li class="nav-item">
-            <a href="{{url ('manager/manager/list')}}" class="nav-link @if(Request::segment(2) =='manager') active @endif">
+          <li class="nav-item">
+            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
-                Admin
-              </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{url ('admin/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Teacher
-              </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{url ('admin/student/list')}}" class="nav-link @if(Request::segment(2) =='studentList') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Student
+                 Create Project
               </p>
             </a>
         </li>
@@ -221,7 +192,15 @@
             <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
-                Class
+                My Account
+              </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Change Password
               </p>
             </a>
         </li>

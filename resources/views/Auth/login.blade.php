@@ -44,7 +44,7 @@
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
             </p>
-            <a href="synco_register.html">
+            <a href="{{url('registration')}}">
               <button class="btn transparent" id="sign-up-btn">
                 Sign up
               </button>

@@ -20,12 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[WebAuthController::class,'login']);
+Route::get('/',[WebAuthController::class,'loginuser'])->name('loginuser');
+Route::get('/registration',[WebAuthController::class,'registration'])->name('registration');
 Route::get('logout',[WebAuthController::class,'logout']);
 Route::get('forgot-password',[WebAuthController::class,'forgotpassword']);
 Route::get('reset/{token}',[WebAuthController::class,'reset']);
 
 Route::post('login',[WebAuthController::class,'Authlogin'])->name('login');
+Route::post('register', [WebAuthController::class, 'register'])->name('register');
 Route::post('forgot-password',[WebAuthController::class,'PostForgotPassword']);
 Route::post('reset/{token}',[WebAuthController::class,'PostReset']);
 
@@ -91,14 +93,6 @@ Route::group(['middleware' => 'manager'],function(){
      Route::get('/manager/student/delete/{id}',[studentListController::class,'delete']);     
      Route::post('/manager/student/edit/{id}',[studentListController::class,'update']);    
      Route::post('/manager/student/add',[studentListController::class,'insert'])->name('insert');
- 
-     //class
-     Route::get('/manager/class/list',[ClassController::class,'classList']);
-     Route::get('/manager/class/add',[ClassController::class,'add']);
-     Route::get('/manager/class/edit/{id}',[ClassController::class,'edit']);   
-     Route::get('/manager/class/delete/{id}',[ClassController::class,'delete']);     
-     Route::post('/manager/class/edit/{id}',[ClassController::class,'update']);    
-     Route::post('/manager/class/add',[ClassController::class,'insert'])->name('insert');
 });
 
 Route::group(['middleware' => 'teacher'],function(){

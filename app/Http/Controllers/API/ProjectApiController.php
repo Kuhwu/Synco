@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\ProjectModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Str;
@@ -23,31 +24,32 @@ class ProjectApiController extends Controller
         return response()->json($data);
     }
     
-    public function insert(Request $request)
+    public function insert(Request $request, $studentId)
+{
+    $project = new ProjectModel;
+    $project->project_name = trim($request->project_name);
+    $project->project_date = trim($request->project_date);
+    $project->submission_date = trim($request->submission_date);
+    $project->description = trim($request->description);
+    $project->created_by = Auth::user()->id;
+    
+    if(!empty($request->file('document_file')))
     {
-        $project = new ProjectModel;
-        $project->project_name = trim($request->project_name);
-        $project->project_date = trim($request->project_date);
-        $project->submission_date = trim($request->submission_date);
-        $project->description = trim($request->description);
-        $project->created_by = Auth::user()->id;
+        $ext = $request->file('document_file')->getClientOriginalExtension();
+        $file = $request->file('document_file');
+        $randomStr = date('Ymdhis').Str::random(30);
+        $filename = strtolower($randomStr).'.'.$ext;
+        $file->move('uploads/project/', $filename);
 
-        if(!empty($request->file('document_file')))
-        {
-            $ext = $request->file('document_file')->getClientOriginalExtension();
-            $file = $request->file('document_file');
-            $randomStr = date('Ymdhis').Str::random(30);
-            $filename = strtolower($randomStr).'.'.$ext;
-            $file->move('uploads/project/', $filename);
-
-            $project->document_file = $filename;
-        }
-
-        $project->save();
-
-        // Return a JSON response indicating the success message.
-        return response()->json(['message' => 'Project successfully added']);
+        $project->document_file = $filename;
     }
+
+    $project->save();
+
+    // Return a JSON response indicating the success message.
+    return response()->json(['message' => 'Project successfully added and assigned to student']);
+}
+
 
     public function edit($id)
     {

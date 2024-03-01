@@ -25,48 +25,12 @@
                 <div class="card-body">
                     <div class = "row">
                         <div class="form-group col-md-6">
-                            <label>First Name<span style="color: red;">*</span></label>
+                            <label>Name<span style="color: red;">*</span></label>
                             <input type="text" class="form-control" name="name" value = "{{old('name')}}" placeholder="First Name" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Last Name<span style="color: red;">*</span></label>
-                            <input type="text" class="form-control" name="last_name" value = "{{old('last_name')}}" placeholder="Last Name" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Gender<span style="color: red;">*</span></label>
-                            <select class="form-control" required name="gender">
-                                <option value="">Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>  
-
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Class<span style="color: red;">*</span></label>
-                            <select class="form-control" required name="subject">
-                                <option value="">Select Class</option>
-                                @foreach($getSubject as $value)
-                                  <option value ="{{ $value->id }}">{{ $value->name }}</option> 
-                                @endforeach
-
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Date of Birth<span style="color: red;">*</span></label>
-                            <input type="date" class="form-control" required value = "{{old('date_of_birth')}}" name="date_of_birth">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Profile Picture<span style="color: red;">*</span></label>
                             <input type="file" class="form-control" name="profile_pic">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Status<span style="color: red;">*</span></label>
-                            <select class="form-control" required name="status">
-                                <option value="">Select Status</option>
-                                <option value="0">Active</option>
-                                <option value="1">Inactive</option>  
-
-                            </select>
                         </div>
                     </div>
                     

@@ -10,31 +10,33 @@ use Hash;
 
 class UserController extends Controller
 {
-    public function register (Request $request){
-        $validator = Validator::make($request->all(),[
+    public function register(Request $request) {
+        $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:100',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|same:password'
-        ]);;
-
-        if($validator->fails()){
+        ]);
+    
+        if ($validator->fails()) {
             return response()->json([
                 'message' => 'Validation Fails',
                 'errors' => $validator->errors()
-            ],422);
+            ], 422);
         }
-
+    
         $user = User::create([
-            'name' => $request->username,
+            'name' => $request->username, // Assuming it's 'username' instead of 'name'
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'user_type' => 2 // Assigning user type 2
         ]);
+    
         return response()->json([
             'message' => 'Registration Successfully',
             'data' => $user
-        ],200);
+        ], 200);
     }
-
+    
     public function login(Request $request){
         $validator = Validator::make($request -> all(),[
             'email' => 'required|email',

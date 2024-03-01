@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\SubjectModel;
 use App\Models\User;
 use App\Models\ClassModel;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class StudentApiController extends Controller
 
     public function add()
     {
-        $classes = ClassModel::all();
-        return response()->json(['classes' => $classes]);
+        $subject = SubjectModel::all();
+        return response()->json(['subject' => $subject]);
     }
 
     public function insert(Request $request)
@@ -85,6 +86,7 @@ class StudentApiController extends Controller
         $student->last_name = trim($request->last_name);
         $student->gender = trim($request->gender);
         $student->subject_id = trim($request->subject_id);
+        $student->teacher_id = trim($request->teacher_id);
         $student->date_of_birth = $request->date_of_birth;
         $student->status = trim($request->status);
         $student->email = trim($request->email);
@@ -92,7 +94,6 @@ class StudentApiController extends Controller
             $student->password = Hash::make($request->password);
         }
 
-        // Handle profile picture upload
         if ($request->hasFile('profile_pic')) {
             $profilePic = $request->file('profile_pic');
             $profilePicName = time() . '_' . Str::random(10) . '.' . $profilePic->getClientOriginalExtension();
