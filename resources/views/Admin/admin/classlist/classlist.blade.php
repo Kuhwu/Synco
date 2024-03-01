@@ -6,11 +6,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Class List </h1>
+            <h1>Subject List </h1>
           </div>
 
           <div class="col-sm-6" style="text-align: right;">
-          <a href="{{url('admin/class/add')}}" class="btn btn-primary"> Add New Class</a>
+          <a href="{{url('admin/class/add')}}" class="btn btn-primary"> Add New Subject</a>
           </div>
 
         </div>
@@ -22,7 +22,7 @@
           <div class="col-md-12">
           <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Search Class</h3>
+                <h3 class="card-title">Search Subject</h3>
               </div>
               <form action="" method="GET">
               {{csrf_field()}}
@@ -55,7 +55,7 @@
           @include ('message')
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Class List</h3>
+                <h3 class="card-title">Subject List</h3>
               </div>
               <div class="card-body p-0">
                 <table class="table table-striped">

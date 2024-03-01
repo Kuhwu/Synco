@@ -42,9 +42,9 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Class<span style="color: red;">*</span></label>
+                            <label>Subject<span style="color: red;">*</span></label>
                             <select class="form-control" required name="class_id">
-                                <option value="">Select Class</option>
+                                <option value="">Select Subject</option>
                                 @foreach($getClass as $value)
                                   <option {{  (old('class_id', $getRecord->class_id) == $value->id) ? 'selected' : '' }} value ="{{ $value->id }}">{{ $value->name }}</option> 
                                 @endforeach

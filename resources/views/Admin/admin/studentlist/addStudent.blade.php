@@ -2,7 +2,6 @@
   @section('content')
 
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -10,16 +9,15 @@
             <h1>Add New Student</h1>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
-    <!-- Main content -->
+  
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
-              <!-- form start -->
               <form action="" method="POST">
               {{csrf_field()}}
                 <div class="card-body">
@@ -27,6 +25,33 @@
                         <div class="form-group col-md-6">
                             <label>Name<span style="color: red;">*</span></label>
                             <input type="text" class="form-control" name="name" value = "{{old('name')}}" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name<span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" name="last_name" value = "{{old('last_name')}}" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Gender<span style="color: red;">*</span></label>
+                            <select class="form-control" required name="gender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>  
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Class<span style="color: red;">*</span></label>
+                            <select class="form-control" required name="subject">
+                                <option value="">Select Class</option>
+                                @foreach($getSubject as $value)
+                                  <option value ="{{ $value->id }}">{{ $value->name }}</option> 
+                                @endforeach
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Date of Birth<span style="color: red;">*</span></label>
+                            <input type="date" class="form-control" required value = "{{old('date_of_birth')}}" name="date_of_birth">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Profile Picture<span style="color: red;">*</span></label>

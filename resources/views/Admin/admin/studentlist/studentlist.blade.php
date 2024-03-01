@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Student List (Total: {{ $getRecord->total() }} )</h1>
+            <h1>Student List (Total: {{ $getStudent->total() }} )</h1>
           </div>
 
           <div class="col-sm-6" style="text-align: right;">
@@ -38,7 +38,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($getRecord as $value)
+                    @foreach($getStudent as $value)
                       <tr>
                         <td>{{$value->name}}</td>
                         <td>{{$value->email}}</td>
@@ -52,7 +52,7 @@
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
-                  {!! $getRecord->appends(request()->except('page'))->links() !!}
+                  {!! $getStudent->appends(request()->except('page'))->links() !!}
                 </div>
               </div>
             </div>

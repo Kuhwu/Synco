@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1>Edit Class</h1>
+            <h1>Edit Subject</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <div class = "row">
                         <div class="form-group col-md-12">
-                            <label>Class Name<span style="color: red;">*</span></label>
+                            <label>Subject Name<span style="color: red;">*</span></label>
                             <input type="text" class="form-control" value = "{{ $getRecord->name }}" name="name" placeholder="Class Name" required>
                         </div>
                         <div class="form-group col-md-12">
