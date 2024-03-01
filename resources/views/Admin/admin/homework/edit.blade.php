@@ -38,7 +38,7 @@
 
                           <div class="form-group">
                             <label>Project Name<span style="color:red">*</span></label>
-                            <input type="text" class="form-control" name="subject_id" id="getSubject" value="{{ $getRecord->subject->name ?? '' }}" readonly>
+                            <input type="text" class="form-control" name="subject_id" id="getSubject" value="{{ $getRecord->subject->name ?? '' }}" >
                         </div>
 
                           <div class="form-group">
@@ -51,14 +51,7 @@
                             <input type="date" value = "{{ $getRecord->submission_date}}" class="form-control" name="submission_date" required>
                           </div>
 
-                          <div class="form-group">
-                            <label>Document </label>
-                            <input type="file" class="form-control" name="document_file" >
-                            @if(!empty($getRecord->getDocument()))
-                             <a href="{{ $getRecord->getDocument() }}" class="btn btn-primary" donwload="">Download</a>
-                             @endif
-                          </div>
-
+       
 
 
                           <div class="form-group">

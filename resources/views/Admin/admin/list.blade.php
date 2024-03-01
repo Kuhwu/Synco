@@ -8,8 +8,12 @@
           <div class="col-sm-6">
             <h1>Admin List</h1>
           </div>
+          <div class="col-sm-6" style="text-align: right;">
+          <a href="{{url('admin/project/project/add')}}" class="btn btn-primary"> Add New Project</a>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
+      
     </section>
 
     <!-- Main content -->
@@ -41,6 +45,15 @@
                         <td>{{$value->name}}</td>
                         <td>{{$value->email}}</td>
                         <td>{{$value->created_at}}</td>
+                        <td>
+                        <a href="{{ url('admin/project/project/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
+                          <form action="{{ url('admin/project/project/delete/'.$value->id) }}" method="POST" style="display: inline;">
+                          @csrf
+                          @method('POST') 
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
+                        </form>
+                      </td>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>

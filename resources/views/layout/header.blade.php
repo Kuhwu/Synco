@@ -49,7 +49,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
+            <a href="{{url ('student/project/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Project Created
@@ -65,15 +65,6 @@
             </a>
         </li>
 
-        @elseif(Auth::user()->user_type == 2)
-        <li class="nav-item">
-            <a href="{{url ('admin/class/list')}}" class="nav-link @if(Request::segment(2) =='classList') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Change Password
-              </p>
-            </a>
-        </li>
         @elseif(Auth::user()->user_type == 3)
         <li class="nav-item">
             <a href="{{url ('student/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
@@ -84,6 +75,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url ('student/project/list')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Create Project
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{url ('/profile')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
               <i class="nav-icon far fa-user"></i>
               <p>
@@ -92,47 +92,16 @@
             </a>
           </li>
 
-        @elseif(Auth::user()->user_type == 4)
-        <li class="nav-item">
-            <a href="{{url ('manager/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
+          <li class="nav-item">
+            <a href="{{url ('student/dashboard')}}" class="nav-link @if(Request::segment(2) =='dashboard') active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Change Password
               </p>
             </a>
           </li>
-        <li class="nav-item">
-            <a href="{{url ('manager/manager/list')}}" class="nav-link @if(Request::segment(2) =='manager') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                 Create Project
-              </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{url ('admin/teacher/list')}}" class="nav-link @if(Request::segment(2) =='teacherList') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Teacher
-              </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{url ('admin/student/list')}}" class="nav-link @if(Request::segment(2) =='studentList') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Student
-              </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{url ('manager/subject/list')}}" class="nav-link @if(Request::segment(2) =='subjectLists') active @endif">
-              <i class="nav-icon far fa-user"></i>
-              <p>
-                Class
-              </p>
-            </a>
-        </li>
+
+
         @endif
         <li class="nav-item">
             <a href="{{url ('logout')}}" class="nav-link ">

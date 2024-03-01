@@ -51,10 +51,6 @@
                             <input type="date" class="form-control" name="submission_date" required>
                           </div>
 
-                          <div class="form-group">
-                            <label>Document </label>
-                            <input type="file" class="form-control" name="document_file" >
-                          </div>
 
 
 

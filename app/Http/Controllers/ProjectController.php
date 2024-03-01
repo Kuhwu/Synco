@@ -44,7 +44,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect('admin/project/list')->with('success','Project successfully added');
+        return redirect('student/project/list')->with('success','Project successfully added');
     }
 
     public function ajax_get_subject(Request $request)
@@ -91,7 +91,7 @@ class ProjectController extends Controller
     
             $project->save();
     
-            return redirect('admin/project/list')->with('success','Project successfully updated');
+            return redirect('student/project/list')->with('success','Project successfully updated');
         }
 
         public function delete($id)

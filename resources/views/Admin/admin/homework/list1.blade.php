@@ -9,7 +9,7 @@
           </div>
 
           <div class="col-sm-6" style="text-align: right;">
-          <a href="{{url('admin/project/project/add')}}" class="btn btn-primary"> Add New Project</a>
+          <a href="{{url('student/project/project/add')}}" class="btn btn-primary"> Add New Project</a>
           </div>
 
     </section>
@@ -48,8 +48,8 @@
                         <td>{{ date('d-m-Y', strtotime($value->submission_date)) }}</td>
                         <td>{{ date('d-m-Y', strtotime($value->created_date)) }}</td>
                         <td>
-                          <a href="{{ url('admin/project/project/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
-                          <form action="{{ url('admin/project/project/delete/'.$value->id) }}" method="POST" style="display: inline;">
+                          <a href="{{ url('student/project/project/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
+                          <form action="{{ url('student/project/project/delete/'.$value->id) }}" method="POST" style="display: inline;">
                           @csrf
                           @method('POST') 
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
